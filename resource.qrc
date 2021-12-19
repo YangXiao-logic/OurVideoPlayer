@@ -21,5 +21,6 @@
         <file>icon/user.png</file>
         <file>icon/volumeDisable.png</file>
         <file>icon/volumeHigh.png</file>
+        <file>icon/upload.png</file>
     </qresource>
 </RCC>

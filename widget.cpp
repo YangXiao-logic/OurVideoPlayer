@@ -133,6 +133,53 @@ void Widget::volumeStateChanged (){
     }
 }
 
+
+void Widget::on_tag_clicked() {
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("Used to tag the video to classify it. Not yet implemented."),
+        QMessageBox::Yes);
+}
+
+
+void Widget::on_user_clicked() {
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("used for user registration/login, after login, "
+                "you will enter the user interface to manage user information. Not yet implemented."),
+        QMessageBox::Yes);
+}
+
+
+void Widget::on_search_clicked() {
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("Click the search box and enter text to search for the video. Not yet implemented."),
+        QMessageBox::Yes);
+}
+
+
+void Widget::on_share_clicked() {
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("Click to share the current video, and you can choose to share with. Not yet implemented."),
+        QMessageBox::Yes);
+}
+
+
+void Widget::on_menu_clicked() {
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("Enter the menu interface. Not yet implemented."),
+        QMessageBox::Yes);
+}
+
+
 void Widget::on_next_clicked() {
     playerindex= playerindex+1;
     TheButtonInfo* button = player->getButtons()->at(playerindex)->info;
@@ -148,6 +195,16 @@ void Widget::getbuttonindex(int index){
     qDebug()<<qString.number(index);
     playerindex=index;
 }
+
+void Widget::on_upload_clicked()
+{
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("Click to upload the video, drag the file into the box to upload it. Not yet implemented."),
+        QMessageBox::Yes);
+}
+
 //end slots
 
 
@@ -219,20 +276,25 @@ void Widget::getVideo(const std::string dirName) {
 }
 
 void Widget::creatbuttonList() {
+    // the QMediaPlayer which controls the playback
+    QVBoxLayout *layout = new QVBoxLayout();
+    ui->buttonWidget->setLayout(layout);
 
     // create the six buttons
     for ( int i = 0; i < 6; i++ ) {
-        TheButton *button = new TheButton(ui->videoWidget);
+        TheButton *button = new TheButton(ui->buttonWidget);
         button->index = i;
         button->connect(button, SIGNAL(jumpTo(TheButtonInfo* )), player, SLOT (jumpTo(TheButtonInfo*))); // when clicked, tell the player to play.
         button->connect(button, SIGNAL(returnindex(int)), this, SLOT (getbuttonindex(int)));
         buttonList.push_back(button);
+        button->setFlat(true);
+        button->setFocusPolicy(Qt::NoFocus);
+        layout->addWidget(button);
         button->init(&videoList.at(i));
     }
     player->setContent(&buttonList, &videoList);
 }
 
-
-
 //end function
+
 

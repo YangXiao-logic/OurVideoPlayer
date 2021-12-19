@@ -46,8 +46,15 @@ private slots:
     void on_speed_clicked();
     void playerStateChanged ();
     void volumeStateChanged();
+    void on_tag_clicked();
+    void on_user_clicked();
+    void on_search_clicked();
+    void on_share_clicked();
+    void on_menu_clicked();
     void on_next_clicked();
     void getbuttonindex(int index);
+
+    void on_upload_clicked();
 
 private:
     Ui::Widget *ui;
@@ -61,7 +68,6 @@ private:
     void playMovie();
     std::vector<TheButtonInfo> getInfoIn (std::string loc);
     void getVideo(const std::string dirName);
-
 
 };
 #endif // WIDGET_H
