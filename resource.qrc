@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/backward.png</file>
+        <file>icon/downloadfill.png</file>
+        <file>icon/edit.png</file>
+        <file>icon/fenlei-copy.png</file>
+        <file>icon/folderOpen.png</file>
+        <file>icon/forward.png</file>
+        <file>icon/full-screen.png</file>
+        <file>icon/label.png</file>
+        <file>icon/menu.png</file>
+        <file>icon/next.png</file>
+        <file>icon/pause.png</file>
+        <file>icon/search.png</file>
+        <file>icon/share.png</file>
+        <file>icon/share_1.png</file>
+        <file>icon/speed.png</file>
+        <file>icon/speedx2.png</file>
+        <file>icon/start.png</file>
+        <file>icon/tuichu.png</file>
+        <file>icon/user.png</file>
+        <file>icon/volumeDisable.png</file>
+        <file>icon/volumeHigh.png</file>
+    </qresource>
+</RCC>
