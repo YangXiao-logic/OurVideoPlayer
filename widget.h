@@ -54,6 +54,8 @@ private slots:
     void on_next_clicked();
     void getbuttonindex(int index);
 
+    void on_pushButton_clicked();
+
     void on_upload_clicked();
 
 private:
@@ -68,6 +70,9 @@ private:
     void playMovie();
     std::vector<TheButtonInfo> getInfoIn (std::string loc);
     void getVideo(const std::string dirName);
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 };
 #endif // WIDGET_H

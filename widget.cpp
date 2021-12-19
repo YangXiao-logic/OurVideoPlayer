@@ -92,12 +92,10 @@ void Widget::on_forward_clicked(){
 
 
 void Widget::on_speed_clicked(){
-    player->setPlaybackRate(2);
     QMessageBox::question(
         nullptr,
         QString("Tomeo"),
-        QString("doSetRate: Audio device or filter does not support rate. "
-                "Falling back to previous value."),
+        QString("Sorry.The function has not been realized yet."),
         QMessageBox::Yes);
 }
 
@@ -196,6 +194,7 @@ void Widget::getbuttonindex(int index){
     playerindex=index;
 }
 
+
 void Widget::on_upload_clicked()
 {
     QMessageBox::question(
@@ -204,6 +203,7 @@ void Widget::on_upload_clicked()
         QString("Click to upload the video, drag the file into the box to upload it. Not yet implemented."),
         QMessageBox::Yes);
 }
+
 
 //end slots
 
@@ -295,6 +295,33 @@ void Widget::creatbuttonList() {
     player->setContent(&buttonList, &videoList);
 }
 
+void Widget::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Space) {
+        on_pause_clicked();
+        qDebug() << "space";
+    }else if (event->key() == Qt::Key_Left) {
+        qint64 backward = player->position();
+        backward = backward - 5000;
+        player->setPosition(backward);
+        qDebug() << "left1";
+    }else if (event->key() == Qt::Key_Right) {
+        qint64 forward = player->position();
+        forward = forward + 5000;
+        player->setPosition(forward);
+        qDebug() << "right1";
+    }else if (event->key() == Qt::Key_Up) {
+        int volumeplus = player->volume();
+        volumeplus = volumeplus + 10;
+        player->setVolume(volumeplus);
+        qDebug() << "up";
+    }else if (event->key() == Qt::Key_Down) {
+        int volumeless = player->volume();
+        volumeless = volumeless - 10;
+        player->setVolume(volumeless);
+        qDebug() << "down";
+    }
+}
+
+
+
 //end function
-
-
