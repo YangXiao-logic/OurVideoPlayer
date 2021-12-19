@@ -39,7 +39,11 @@ public:
 private slots:
     void on_open_clicked();
     void on_pause_clicked();
+    void on_fullscreen_clicked();
     void on_mute_clicked();
+    void on_backward_clicked();
+    void on_forward_clicked();
+    void on_speed_clicked();
     void playerStateChanged ();
     void volumeStateChanged();
     void on_next_clicked();

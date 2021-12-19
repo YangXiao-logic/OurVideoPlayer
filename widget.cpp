@@ -57,6 +57,10 @@ void Widget::on_pause_clicked(){
 }
 
 
+void Widget::on_fullscreen_clicked(){
+    ui->videoWidget->setFullScreen(true);
+}
+
 
 void Widget::on_mute_clicked(){
     switch (player->volume())
@@ -70,6 +74,31 @@ void Widget::on_mute_clicked(){
             ui->mute->setIcon(QIcon(":/icon/volumeDisable.png"));
             break;
     }
+}
+
+
+void Widget::on_backward_clicked(){
+    qint64 backward = player->position();
+    backward = backward - 5000;
+    player->setPosition(backward);
+}
+
+
+void Widget::on_forward_clicked(){
+    qint64 forward = player->position();
+    forward = forward + 5000;
+    player->setPosition(forward);
+}
+
+
+void Widget::on_speed_clicked(){
+    player->setPlaybackRate(2);
+    QMessageBox::question(
+        nullptr,
+        QString("Tomeo"),
+        QString("doSetRate: Audio device or filter does not support rate. "
+                "Falling back to previous value."),
+        QMessageBox::Yes);
 }
 
 
@@ -190,7 +219,6 @@ void Widget::getVideo(const std::string dirName) {
 }
 
 void Widget::creatbuttonList() {
-    // the QMediaPlayer which controls the playback
 
     // create the six buttons
     for ( int i = 0; i < 6; i++ ) {
@@ -207,5 +235,4 @@ void Widget::creatbuttonList() {
 
 
 //end function
-
 

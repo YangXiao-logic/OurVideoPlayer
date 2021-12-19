@@ -20,11 +20,13 @@ SOURCES += \
     main.cpp \
     the_button.cpp \
     the_player.cpp \
+    videowidget.cpp \
     widget.cpp
 
 HEADERS += \
     the_button.h \
     the_player.h \
+    videowidget.h \
     widget.h
 
 FORMS += \
